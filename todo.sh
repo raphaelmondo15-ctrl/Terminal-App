@@ -1,13 +1,13 @@
 #! /bin/bash
 
 #Define the task file
-TASK_FILE="tasks.txt"
+TASK_FILE="task.txt"
 
 #Function to add task
 add_task() {
 if [[ -n "$1" ]]; then
-  echo "$1" >> task.txt
-  echo  "Task added: $2"
+  echo "$1" >> $TASK_FILE
+  echo  "Task added: $1"
 else
     echo "Error: task text is required"
 fi    
@@ -15,10 +15,10 @@ fi
 
 #Function to list all tasks
 List_tasks() {
-    if [[ -f "$Task_File" ]]; then
+    if [[ -f "$TASK_FILE" ]]; then
         echo "Tasks:"
         cat -n "$TASK_FILE"
-    eles
+    else
        echo "NO task available"
      fi    
 }
@@ -32,8 +32,8 @@ case $1 in
      List_tasks
      ;;
    del)
-     if [[ $(wc -l < $TASK_FILE) -ge 2 && $2 -eq 2 ]]; then
-      sed -i  '' '2d' "tasks.txt"
+     if [[ $(wc -l < "task.txt") -ge 2 && $2 -eq 2 ]]; then
+      sed -i '' '2d' "task.txt"
      else
         echo "File has only one line"
      fi
