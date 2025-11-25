@@ -1,5 +1,4 @@
 #! /bin/bash
-
 #Define the task file
 TASK_FILE="task.txt"
 
